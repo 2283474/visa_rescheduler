@@ -36,7 +36,7 @@ PUSH_USER = config['PUSHOVER']['PUSH_USER']
 LOCAL_USE = config['CHROMEDRIVER'].getboolean('LOCAL_USE')
 HUB_ADDRESS = config['CHROMEDRIVER']['HUB_ADDRESS']
 
-REGEX_CONTINUE = "//a[contains(text(),'Continuar')]"
+REGEX_CONTINUE = "//a[contains(text(),'Continue')]"
 
 
 # def MY_CONDITION(month, day): return int(month) == 11 and int(day) >= 5
@@ -184,7 +184,7 @@ def reschedule(date):
     }
 
     r = requests.post(APPOINTMENT_URL, headers=headers, data=data)
-    if(r.text.find('Successfully Scheduled') != -1):
+    if(r.text.find('successfully scheduled') != -1):
         msg = f"Rescheduled Successfully! {date} {time}"
         send_notification(msg)
         EXIT = True
